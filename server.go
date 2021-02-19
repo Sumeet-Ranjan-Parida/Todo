@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"log"
 	"net"
-	"std/Proj/proto"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -47,6 +46,9 @@ func (s *server) GetCred(ctx context.Context, request *proto.Request) (*proto.Re
 
 	insert.Exec(username, password)
 
+	message := "Account Created"
+
+	return &proto.Response{Message: message}, nil
 }
 
 func dbConn() (db *sql.DB) {
