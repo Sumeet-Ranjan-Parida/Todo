@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+message Request {
+    string username = 1;
+    string password = 2;
+}
+
+message Response {
+    bool auth = 1;
+}
+
+message additem {
+    string item = 1;
+}
+
+message items {
+    string items = 1;
+}
+
+service Login {
+    rpc GetCred (Request) returns (Response);
+}
+
+service Todo {
+    rpc Getitem (additem) returns (items);
+}
