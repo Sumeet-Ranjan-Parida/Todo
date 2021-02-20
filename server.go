@@ -23,7 +23,7 @@ func main() {
 	}
 
 	gs := grpc.NewServer()
-	proto.RegisterContactServer(gs, &server{})
+	proto.RegisterLoginServer(gs, &server{})
 	reflection.Register(gs)
 
 	if err := gs.Serve(lis); err != nil {
